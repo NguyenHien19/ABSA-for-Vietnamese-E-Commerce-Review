@@ -1,37 +1,41 @@
-# SSEGCN-ABSA
-Code and datasets of our paper "SSEGCN: Syntactic and Semantic Enhanced Graph Convolutional Network for Aspect-based Sentiment Analysis" accepted by NAACL 2022.
+# ABSA for Vietnamese E-commerce Review
+Project ứng dụng Mạng tích chập đồ thị nâng cao ngữ nghĩa và cú pháp cho bài toán Phân tích quan điểm mức khía cạnh và áp dụng vào dữ liệu tiếng Việt.
 
 
+## Dữ liệu
+Sử dụng 2 bộ dữ liệu tiếng Việt cho phân tích quan điểm mức khía cạnh, bao gồm các đánh giá của người dùng về điện thoại di động: <br> UIT-ViSFD [1] và UIT-ViSD4SA [2]. <br>
 
-## Requirements
+## Mô hình
+Áp dụng mô hình SSEGCN được đề xuất bởi Zheng Zhang và cộng sự (2022) [3]
 
-- torch==1.4.0
-- scikit-learn==0.23.2
-- transformers==3.2.0
-- cython==0.29.13
-- nltk==3.5
+## Cấu hình
+Mô hình được huấn luyện trên CPU với cài đặt cấu hình như sau: <br> 
+- Số lượng CPU: 2
+- Vendor ID: GenuineIntel
+- CPU Family: 6
+- Model: 79
+- Tên Model: Intel(R) Xeon(R) CPU @ 2.20GHz
+- Microcode: 0x1
+- Cpu MHz: 2200.000
+- Dung lượng Cache: 56320 KB
+- Số nhân CPU: 1
+- Cpuid level: 13
+- Bogomips: 4400.00
+- Address Sizes: 46 bits vật lý và 48 bits ảo
+- 1 GPU Tesla T4
 
-To install requirements, run `pip install -r requirements.txt`.
+## Cách chạy
 
-## Preparation
+```
+python preprocess_data.py
 
-1. Download and unzip GloVe vectors(`glove.840B.300d.zip`) from [https://nlp.stanford.edu/projects/glove/](https://nlp.stanford.edu/projects/glove/) and put it into  `SSEGCN/glove` directory.
+sh build_vocab.sh
 
-2. Prepare dataset with:
+sh run.sh
+```
 
-   `python preprocess_data.py`
+## Tham khảo
 
-3. Prepare vocabulary with:
-
-   `sh build_vocab.sh`
-
-## Training
-
-To train the SSEGCN model, run:
-
-`sh run.sh`
-
-## Credits
-
-The code and datasets in this repository are based on [DualGCN_ABSA](https://github.com/CCChenhao997/DualGCN-ABSA) .
-
+1. https://github.com/LuongPhan/UIT-ViSFD
+2. https://github.com/kimkim00/UIT-ViSD4SA
+3. https://github.com/zhangzheng1997/SSEGCN-ABSA
